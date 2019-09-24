@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         if (ParseUser.getCurrentUser() != null) {
-            ParseUser.logOut();
+            //ParseUser.logOut();
+            HomeActivity();
         }
 
         button1.setOnClickListener(MainActivity.this);
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 editText.setText("");
                                 editText1.setText("");
                                 editText2.setText("");
+                                HomeActivity();
 
                             } else {
 
@@ -128,5 +130,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             e.getStackTrace();
         }
+    }
+
+    private void HomeActivity (){
+
+        startActivity(new Intent(this,HomeActivity.class));
     }
 }

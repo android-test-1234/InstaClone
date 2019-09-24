@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="textcolor">#FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="fragment_color">#E647FF</color>
 </resources>

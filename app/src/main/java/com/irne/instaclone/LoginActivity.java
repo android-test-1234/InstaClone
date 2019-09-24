@@ -1,5 +1,6 @@
 package com.irne.instaclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -44,7 +45,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         button = findViewById(R.id.button3);
 
         if(ParseUser.getCurrentUser() != null) {
-            ParseUser.logOut();
+           // ParseUser.logOut();
+            HomeActivity();
         }
 
         button.setOnClickListener(LoginActivity.this);
@@ -67,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                         FancyToast.makeText(LoginActivity.this, ParseUser.getCurrentUser().getUsername() + " successfully logged in",
                                 Toast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                        HomeActivity();
                     } else {
 
                         FancyToast.makeText(LoginActivity.this, e.getMessage(),
@@ -90,5 +93,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             e.getStackTrace();
         }
 
+    }
+
+    private void HomeActivity (){
+
+        startActivity(new Intent(this,HomeActivity.class));
     }
 }
