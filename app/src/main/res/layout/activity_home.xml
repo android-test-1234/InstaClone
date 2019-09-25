@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/caveat_bold"
-            android:gravity="center"
+            android:gravity="left"
             android:text="Home"
             android:textColor="@color/textcolor"
             android:textSize="30sp"

@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 editText1.setText("");
                                 editText2.setText("");
                                 HomeActivity();
+                                finish();
 
                             } else {
 
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
 
                 startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                finish();
                 break;
         }
     }

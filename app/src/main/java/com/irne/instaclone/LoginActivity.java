@@ -1,5 +1,6 @@
 package com.irne.instaclone;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(ParseUser.getCurrentUser() != null) {
            // ParseUser.logOut();
             HomeActivity();
+            finish();
         }
 
         button.setOnClickListener(LoginActivity.this);
@@ -54,6 +56,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Logging in");
+        progressDialog.show();
 
         ParseUser.logInInBackground(editText4.getText().toString(), editText5.getText().toString(), new LogInCallback() {
             @Override
@@ -70,11 +76,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         FancyToast.makeText(LoginActivity.this, ParseUser.getCurrentUser().getUsername() + " successfully logged in",
                                 Toast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                         HomeActivity();
+                        finish();
                     } else {
 
                         FancyToast.makeText(LoginActivity.this, e.getMessage(),
                                 Toast.LENGTH_LONG, FancyToast.ERROR, true).show();
                     }
+                    progressDialog.dismiss();
                 }
             }
         });
